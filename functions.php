@@ -17,7 +17,7 @@ function my_theme_setup(){
     set_post_thumbnail_size(1280,720,true);
     //Resumo Posts
     add_filter('excerpt_length',function($lenght){
-        return 20;
+        return 10;
     });
     add_filter('next_posts_link_attributes','posts_link_attributes');
     add_filter('previous_posts_link_attributes','posts_link_attributes');
@@ -56,6 +56,9 @@ function my_theme_setup(){
      ) 
     );
 
+
+
+
 }
 
 
@@ -72,15 +75,15 @@ function my_theme_scripts(){
 //Sidebar Widgets
 add_action('widgets_init','my_theme_sidebar');
 function my_theme_sidebar(){
-
+    // Criando barra lateral
     register_sidebar(array(
         'id' => 'primary-sidebar',
-        'name' => 'Primary_Sidebar',
+        'name' => 'Barra Lateral',
         'description' => 'Sidebar that appears accros tge entire website',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="widget card %2$s text-dark mb-3">',
         'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>'
+        'before_title' => '<h5 class="card-header">',
+        'after_title' => '</h5>',   
     ));
 }
 
@@ -88,13 +91,27 @@ function my_theme_sidebar(){
 function wptutsplus_customize_register( $wp_customize ) {
 
     //Cria seção
+
+    //Header
     $wp_customize->add_section( 'textcolors' , array(
-        'title' =>  'Esquema de Cores',
+        'title' =>  'Cores Pincipais',
+        'priority' => 20
+    ) );
+    //Bootstrap Colors
+    $wp_customize->add_section( 'bootstrapcolors' , array(
+        'title' =>  'Esquema de Cores - Bootstrap',
+        'priority' => 20
+    ) );
+    //Menu
+    $wp_customize->add_section( 'menucolors' , array(
+        'title' =>  'Barra de Menu',
         'priority' => 20
     ) );
 
 
     //Cria campos
+
+    //Header
     $txtcolors[] = array(
         'slug'=>'color_scheme_1', 
         'default' => '#001122',
@@ -122,7 +139,7 @@ function wptutsplus_customize_register( $wp_customize ) {
     $txtcolors[] = array(
         'slug'=>'color_scheme_5', 
         'default' => '#000',
-        'label' => 'Cor do texto.'
+        'label' => 'Cor do Título.'
     );
 
     $txtcolors[] = array(
@@ -130,13 +147,40 @@ function wptutsplus_customize_register( $wp_customize ) {
         'default' => '#000',
         'label' => 'Cor do texto.'
     );
+    /*
+    //Bootstrap
+    //Primary secoundary success danger warning dark light  
+    $btcolors[] = array(
+        'slug' => 'bootstrapcolors_primary',
+        'default' => '#0d6efd',
+        'label' => 'Primary'
+    );
+    */
+    //Menu
+    $menucolors[] = array(
+        'slug' => 'menucolors_background',
+        'default' => '#fff',
+        'label' => 'Cor de Fundo'
+    );
+    $menucolors[] = array(
+        'slug' => 'menucolors_title',
+        'default' => '#000',
+        'label' => 'Cor do Título'
+    );
 
-
+    $menucolors[] = array(
+        'slug' => 'menucolors_text',
+        'default' => '#000',
+        'label' => 'Cor do Texto'
+    );
 
 
 
     
-    //Define e cria no wordpress    
+    //Define e cria no wordpress 
+
+
+    //Text Colors   
     foreach( $txtcolors as $txtcolor ) {
 
     // SETTINGS
@@ -156,6 +200,56 @@ function wptutsplus_customize_register( $wp_customize ) {
                     'label' => $txtcolor['label'], 
                     'section' => 'textcolors',
                     'settings' => $txtcolor['slug'])
+            )
+        );
+    }
+
+    /*
+    //Bootstrap
+    foreach( $btcolors as $btcolor ) {
+
+    // SETTINGS
+        $wp_customize->add_setting(
+            $btcolor['slug'], array(
+                'default' => $btcolor['default'],
+                'type' => 'theme_mod',
+                'capability' => 'edit_theme_options'
+            )
+        );
+    // CONTROLS
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                $btcolor['slug'], 
+                array(
+                    'label' => $btcolor['label'], 
+                    'section' => 'bootstrapcolors',
+                    'settings' => $btcolor['slug'])
+            )
+        );
+    }
+
+    */
+    //Menu
+    foreach( $menucolors as $menucolor ) {
+
+    // SETTINGS
+        $wp_customize->add_setting(
+            $menucolor['slug'], array(
+                'default' => $menucolor['default'],
+                'type' => 'theme_mod',
+                'capability' => 'edit_theme_options'
+            )
+        );
+    // CONTROLS
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                $menucolor['slug'], 
+                array(
+                    'label' => $menucolor['label'], 
+                    'section' => 'menucolors',
+                    'settings' => $menucolor['slug'])
             )
         );
     }

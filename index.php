@@ -1,3 +1,5 @@
+
+
 <?php get_header();?>
 
 
@@ -67,37 +69,76 @@
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-12 text-center display-3 mb-5 title-body">
-			Nossos Serviços
+			Ultimas Postagens
 		</div>
 	</div>
 	<div class="row row-cols-1 row-cols-md-2 g-4">
 
+
 		<?PHP 
 
 		if(have_posts()):while(have_posts()) : the_post();
-		?>
-		<div class="col">
-			<div class="card">	
-				<div class="card-body">
-					<h5 class="card-title title-body"><a class="link-dark" href="<?php the_permalink();?>"><?php the_title();?></a></h5>
-					<?php the_post_thumbnail('post-thumbnail',array('class'=>'img-fluid')); ?>
-					<p class="card-text text-body"><?php the_excerpt(); ?></p>
-					<p class="card-text text-body"><small class="text-muted">Publicado em <?=get_the_date('d/m/y');?></small></p>
-				</div>
+			?>
+
+
+
+			<div class="col-3">
+				<a  class="text-dark" style='text-decoration:none;' aria-current="true" href="<?php the_permalink();?>">
+					<div class="card h-100">
+
+						<div class="w-100" style='height:200px;'>
+							<?php
+							if(has_post_thumbnail()){
+								the_post_thumbnail('post-thumbnail',array('class'=>'card-img-top img-fluid mw-100 mh-100'));
+							}else{
+								echo "<div class='w-100 h-100 card-img-top img-fluid gradient'></div>";
+							}
+							?>
+						</div>
+
+
+						<div class="card-body">
+							<h5 class="card-title"><?php the_title();?></h5>
+							<p class="card-text"><?php the_excerpt(); ?></p>
+						</div>
+						<div class="card-footer">
+							<small class="text-muted">Publicado em <?=get_the_date('d/m/y');?></small>
+						</div>
+					</div>
+				</a>
 			</div>
-		</div>
-	<?php endwhile;	?>
-	<?php
-	else: get_404_template(); endif;
-	 ?>
+
+
+		<?php endwhile;	?>
+
+
+		<?php
+		else: get_404_template(); endif;
+		?>
+
 
 	</div>
 
-	<div class="blog-pagination mb-4">
-		<?php next_posts_link('Mais Antigos'); ?> <?php previous_posts_link('Mais Novos'); ?>
-	</div>
+
+
+
+
+
+
+
+
+
+
 
 </div>
+
+<div class="blog-pagination mb-4">
+	<?php next_posts_link('Mais Antigos'); ?> <?php previous_posts_link('Mais Novos'); ?>
+</div>
+
+</div>
+
+
 
 
 
