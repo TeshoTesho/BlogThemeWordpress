@@ -9,10 +9,9 @@ Template Name: Left Sidebar
 <div class="container pt-5">
 	<div class="row">
 
-		<div class="col-sm-4">
 			<!-- Primeira Coluna -->
 			<?php get_sidebar();?>
-		</div>	
+	
 		<div class="col-sm-8">
 			<!-- Segunda Coluna -->
 

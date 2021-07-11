@@ -8,7 +8,7 @@ get_header();?>
 
 <div class="container pt-5">
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-12 col-md-8">
 			<!-- Primeira Coluna -->
 
 			<?php
@@ -24,10 +24,8 @@ get_header();?>
 			?>
 		</div>
 
-		<div class="col-sm-4">
 			<!-- Segunda Coluna -->
-			<?php get_sidebar();?>
-		</div>	
+			<?php get_sidebar();?>	
 	</div>
 </div>
 
