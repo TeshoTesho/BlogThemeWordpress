@@ -18,6 +18,8 @@ if($my_query->have_posts()) : while($my_query->have_posts()) : $my_query->the_po
 
 endwhile;
 endif;
+
+if(@count($a)>=3){
 ?>
 
 <!--Start Main-->
@@ -77,7 +79,7 @@ endif;
 </div>
 
 <?php
-
+}
 wp_reset_query();
 ?>
 
