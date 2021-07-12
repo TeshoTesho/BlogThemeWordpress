@@ -6,9 +6,9 @@
 
 
 
-<div class="container p-5">
+<div class="container pt-5">
 	<div class="row">
-		<div class="col">
+		<div class="col-sm-12 col-md-8 mb-3">
 			<?php
 			if(have_posts()):while(have_posts()) : the_post();
 				?>

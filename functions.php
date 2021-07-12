@@ -82,7 +82,7 @@ function my_theme_sidebar(){
         'description' => 'Sidebar that appears accros tge entire website',
         'before_widget' => '<div id="%1$s" class="widget card %2$s text-dark mb-3">',
         'after_widget' => '</div>',
-        'before_title' => '<h5 class="card-header">',
+        'before_title' => '<h5 class="card-header  cor2 text-header rounded-top">',
         'after_title' => '</h5>',   
     ));
 }
@@ -142,12 +142,12 @@ function wptutsplus_customize_register( $wp_customize ) {
         'label' => 'Cor do Título.'
     );
 
+    /*
     $txtcolors[] = array(
         'slug'=>'color_scheme_6', 
         'default' => '#000',
         'label' => 'Cor do texto.'
     );
-    /*
     //Bootstrap
     //Primary secoundary success danger warning dark light  
     $btcolors[] = array(
@@ -159,7 +159,7 @@ function wptutsplus_customize_register( $wp_customize ) {
     //Menu
     $menucolors[] = array(
         'slug' => 'menucolors_background',
-        'default' => '#fff',
+        'default' => '#f2f2f2',
         'label' => 'Cor de Fundo'
     );
     $menucolors[] = array(
@@ -167,13 +167,13 @@ function wptutsplus_customize_register( $wp_customize ) {
         'default' => '#000',
         'label' => 'Cor do Título'
     );
-
+    /*
     $menucolors[] = array(
         'slug' => 'menucolors_text',
         'default' => '#000',
         'label' => 'Cor do Texto'
     );
-
+    */
 
 
     

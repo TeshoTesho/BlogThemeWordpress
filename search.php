@@ -28,8 +28,8 @@
 								<div class="card  h-100">
 									<div class="row g-0 h-100">
 										<div class="col-md-1 h-100">
-											<div style="width:10px;height: 100%; " class="rounded-start d-none d-md-block fundo" ></div>
-											<div style="width:100%;height: 10px; " class="rounded-top d-block d-sm-block d-md-none fundo" ></div>
+											<div style="width:10px;height: 100%; " class="rounded-start d-none d-md-block cor2" ></div>
+											<div style="width:100%;height: 10px; " class="rounded-top d-block d-sm-block d-md-none cor2" ></div>
 										</div>
 										<div class="col-md-10">
 											<div class="card-body">

@@ -3,7 +3,7 @@
 
 <div class="container pt-5">
 	<div class="row">
-		<div class="col-sm-8 text-dark">
+		<div class="col-sm-12 col-md-8 text-dark">
 			<!-- Primeira Coluna -->
 
 			<?php
@@ -18,11 +18,8 @@
 			endif;
 			?>
 		</div>
-
-		<div class="col-sm-4">
-			<!-- Segunda Coluna -->
-			<?php dynamic_sidebar('primary-sidebar');?>
-		</div>	
+<div class="col-4"><?php get_sidebar();?>	</div>
+			
 	</div>
 </div>
 

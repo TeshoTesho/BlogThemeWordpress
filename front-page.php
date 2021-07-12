@@ -20,65 +20,76 @@ endwhile;
 endif;
 
 if(@count($a)>=3){
-?>
+	?>
 
-<!--Start Main-->
-<div class="position-relative overflow-hidden text-center">
+	<!--Start Main-->
+	<div class="position-relative overflow-hidden text-center">
 
-	<div class="container">
-		<div class="row">
-			<div class="col-12 text-center display-3 mb-2 mt-2 title-body">
-				Destaques
+		<div class="container">
+			<div class="row">
+				<div class="col-6 offset-3 text-center display-3 mb-2 mt-5 title-body">
+					Destaques
+					<div class="mt-2 w-100 cor2 rounded" style="height: 5px;"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row text-light ">
-			
-			<div class="col-lg-6 col-md-12 ">
-				<a href="<?php echo get_permalink($a[0]); ?>">
-					<div class=" position-relative">
-						<?php 
-						$first_post = get_post($a[0]);
-						echo get_the_post_thumbnail($a[0],'',array('class'=>'m-1','style'=>'width:100%;height:410px;object-fit: cover;')); ?>
-						<div class="display-6 text-light" style="position:absolute;bottom: 8px; right: 16px;"><?php echo get_the_title($a[0]);?></div>
+			<div class="row text-light mt-2 ">
 
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-6 col-ms-12">
-				<div class="row h-50">
-					<div class="col-sm-12 col-md-6 col-lg-12  ">
-						<a href="<?php echo get_permalink($a[1]); ?>">
-							<div class=" position-relative">
+				<div class="col-lg-6 col-md-12 mt-2 ">
+					<a href="<?php echo get_permalink($a[0]); ?>">
+						<div class=" position-relative text-end" >
+							<div class="cor1" style="filter:brightness(80%);">
 								<?php 
-								$secound_post = get_post($a[1]);
-
-								echo get_the_post_thumbnail($a[1],'',array('class'=>'m-1','style'=>'width:100%;height:200px;object-fit: cover;')); ?>
-								<div class="display-7 text-light" style="position:absolute;bottom: 8px; right: 16px;"><?php echo get_the_title($a[1]);?></div>
-
+								$first_post = get_post($a[0]);
+								echo get_the_post_thumbnail($a[0],'',array('class'=>'','style'=>'width:100%;height:410px;object-fit: cover;opacity:0.5'));
+								?>
 							</div>
-						</a>
+							
+							<div class="display-6 text-light text-break" style="position:absolute;bottom: 8px; right: 16px;"><?php echo get_the_title($a[0]);?></div>
 
-					</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-6 col-ms-12">
+					<div class="row h-50">
+						<div class="col-sm-12 col-md-6 col-lg-12  mt-2">
+							<a href="<?php echo get_permalink($a[1]); ?>">
+								<div class=" position-relative text-end">
+									<div class="cor1" style="filter:brightness(75%);">
+										<?php 
+										$secound_post = get_post($a[1]);
 
-					<div class="col-sm-12 col-md-6 col-lg-12   ">
-						<a href="<?php echo get_permalink($a[2]); ?>">
-							<div class=" position-relative">
-								<?php 
-								$third_post = get_the_ID($a[2]);
-								echo get_the_post_thumbnail($a[2],'',array('class'=>'m-1','style'=>'width:100%;height:200px;object-fit: cover;')); ?>
-								<div class="display-7 text-light" style="position:absolute;bottom: 8px; right: 16px;"><?php echo get_the_title($a[2]);?></div>
+										echo get_the_post_thumbnail($a[1],'',array('class'=>'','style'=>'width:100%;height:200px;object-fit: cover;opacity:0.5')); 
+										?>
+									</div>
+									<div class="display-6 text-light shadow col-10 text-break" style="position:absolute;bottom: 8px; right: 16px;"><?php echo get_the_title($a[1]);?></div>
 
-							</div>
-						</a>
+								</div>
+							</a>
+
+						</div>
+
+						<div class="col-sm-12 col-md-6 col-lg-12 mt-2  ">
+							<a href="<?php echo get_permalink($a[2]); ?>">
+								<div class=" position-relative text-end">
+									<div class="cor1" style="filter:brightness(75%);">
+										<?php 
+										$third_post = get_the_ID($a[2]);
+										echo get_the_post_thumbnail($a[2],'',array('class'=>'','style'=>'width:100%;height:200px;object-fit: cover;opacity:0.5')); 
+										?>
+									</div>
+									<div class="display-6 text-light col-10 text-break" style="position:absolute;bottom: 8px; right: 16px;"><?php echo get_the_title($a[2]);?></div>
+
+								</div>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 
-</div>
-
-<?php
+	<?php
 }
 wp_reset_query();
 ?>
@@ -91,8 +102,9 @@ wp_reset_query();
 <!-- Serviços -->
 <div class="container mt-5">
 	<div class="row">
-		<div class="col-12 text-center display-3 mb-5 title-body">
+		<div class="col-6 offset-3 text-center display-3 mb-5 title-body">
 			Ultimas Postagens
+			<div class="mt-2 w-100 cor2 rounded" style="height: 5px;"></div>
 		</div>
 	</div>
 	<div class="row">
@@ -105,7 +117,7 @@ wp_reset_query();
 
 
 
-			<div class="col-3">
+			<div class="col-sm-12 col-md-6 col-xl-3  mt-2">
 				<a  class="text-dark" style='text-decoration:none;' aria-current="true" href="<?php the_permalink();?>">
 					<div class="card h-100">
 
@@ -138,19 +150,7 @@ wp_reset_query();
 		<?php
 		else: get_404_template(); endif;
 		?>
-
-
-
-
-
-
-
-
-
-
-
 	</div>
-
 
 </div>
 <div class="container">
@@ -158,13 +158,16 @@ wp_reset_query();
 		<div class="col-12 d-flex justify-content-between">
 			<?php previous_posts_link('Mais Novos'); ?> 
 			<?php next_posts_link('Mais Antigos'); ?>
-			
 		</div>
-
 	</div>
-
 </div>
 
+<div class="container">
+	<div class="row">
+		<div class="col"></div>
+		<?php //get_sidebar();?>	
+	</div>
+</div>
 
 
 <?php get_footer(); ?>
