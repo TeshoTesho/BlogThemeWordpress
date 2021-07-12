@@ -1,8 +1,4 @@
-
-
 <?php get_header();?>
-
-
 
 <!--Start Main-->
 <div class="position-relative overflow-hidden text-center pt-3 gradient">
@@ -14,12 +10,8 @@
 		<p class="lead fw-normal text-header text-justify"><?php bloginfo('description');?>.</p>
 		<a class="btn btn-outline-light text-header" href="#">Entre em Contato</a>
 	</div>
-
-
 </div>
-
 <div class="relative gradient pt-5 ">
-
 	<svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 			<g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -43,10 +35,7 @@
 	</svg>
 </div>
 
-
 <!--End Main-->
-
-
 <div class="container mt-5 pt-5">
 	<div class="card mb-3 bg-light" >
 		<div class="row g-0">
@@ -65,10 +54,4 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
 <?php get_footer(); ?>

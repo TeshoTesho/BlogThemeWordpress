@@ -4,6 +4,9 @@
 //Capturando Walker Bootstrap para Wordpress
 require_once(get_template_directory() . '/inc/class-nav-bootstrap-walker.php');
 
+//Footer - Menu
+require_once(get_template_directory() . '/inc/costumizer.php');
+
 
 
 //Criando tema. Menu
@@ -30,12 +33,23 @@ function my_theme_setup(){
     //PAGE--
     //Titulo
     add_theme_support('title-tag');
-    //Menu
+    //Menu Header
     register_nav_menus( array(
-        'primary' => __( 'Primary Menu', 'bts5' ),
+        'primary' => __( 'Primary Menu', 'Otima Ideia' ),
+    ) );
+    //Menus Rodape
+
+    register_nav_menus( array(
+        'primary_footer' => __( 'Primary Menu Footer', 'Otima Ideia' ),
     ) );
 
+    register_nav_menus( array(
+        'second_footer' => __( 'Second Menu Footer', 'Otima Ideia' ),
+    ) );
 
+    register_nav_menus( array(
+        'third_footer' => __( 'Third Menu Footer', 'Otima Ideia' ),
+    ) );
     //Background
     /*
     add_theme_support('custom-background',
@@ -49,12 +63,18 @@ function my_theme_setup(){
     //Logo
     add_theme_support( 'custom-logo', 
         array(
-         'height'      => 60,
-         'width'       => 230,
-         'flex-height' => true, 
-         'flex-width'  => false
-     ) 
+           'height'      => 60,
+           'width'       => 230,
+           'flex-height' => true, 
+           'flex-width'  => false
+       ) 
     );
+
+    
+    //Formato de Posts
+    add_theme_support('post-formats',array(
+        'aside','image'
+    ));
 
 
 
@@ -85,6 +105,45 @@ function my_theme_sidebar(){
         'before_title' => '<h5 class="card-header  cor2 text-header rounded-top">',
         'after_title' => '</h5>',   
     ));
+}
+
+
+//Comentários
+
+// Ativar o fomrulário para respostas nos comentários
+function theme_queue_js() {
+    if ( (!is_admin()) && is_singular() && comments_open() && get_option('thread_comments') ) wp_enqueue_script('comment-reply');
+}
+add_action('wp_print_scripts', 'theme_queue_js');
+
+// Personalizar os comentários
+function format_comment($comment, $args, $depth) {
+
+    $GLOBALS['comment'] = $comment; ?>
+
+    <div <?php comment_class('ml-4'); ?> id="comment-<?php comment_ID(); ?>">
+
+        <div class="card mb-3">
+            <div class="card-body">
+
+            <div class="comment-intro">
+
+                <h5 class="card-title text-cor1" style=""><?php comment_author(); ?></h5>
+                <h6 class="card-subtitle mb-3 text-muted">Comentou em <?php printf(__('%1$s'), get_comment_date('d/m/y'), get_comment_time()) ?></h6>
+            
+            </div>
+
+            <?php comment_text(); ?>
+
+            <div class="reply">
+                <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+            </div>
+
+            </div>
+        </div>
+
+    <?php
+
 }
 
 //Esquema de Cores
@@ -258,3 +317,5 @@ function wptutsplus_customize_register( $wp_customize ) {
 
 }
 add_action('customize_register', 'wptutsplus_customize_register' );
+
+

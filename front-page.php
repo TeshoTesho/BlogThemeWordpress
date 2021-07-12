@@ -1,30 +1,19 @@
-
-
 <?php get_header();?>
-
-
 <?php 
 $my_args = array(
 	'post_type' => 'post',
 	'posts_per_page' => 3,
 	'category_name' =>'Destaque'
 );
-
 $my_query = new WP_query($my_args);
-
-
 if($my_query->have_posts()) : while($my_query->have_posts()) : $my_query->the_post();
 	$a[] = get_the_ID();
-
 endwhile;
 endif;
-
 if(@count($a)>=3){
 	?>
-
 	<!--Start Main-->
 	<div class="position-relative overflow-hidden text-center">
-
 		<div class="container">
 			<div class="row">
 				<div class="col-6 offset-3 text-center display-3 mb-2 mt-5 title-body">
@@ -33,7 +22,6 @@ if(@count($a)>=3){
 				</div>
 			</div>
 			<div class="row text-light mt-2 ">
-
 				<div class="col-lg-6 col-md-12 mt-2 ">
 					<a href="<?php echo get_permalink($a[0]); ?>">
 						<div class=" position-relative text-end" >
@@ -43,9 +31,7 @@ if(@count($a)>=3){
 								echo get_the_post_thumbnail($a[0],'',array('class'=>'','style'=>'width:100%;height:410px;object-fit: cover;opacity:0.5'));
 								?>
 							</div>
-							
 							<div class="display-6 text-light text-break" style="position:absolute;bottom: 8px; right: 16px;"><?php echo get_the_title($a[0]);?></div>
-
 						</div>
 					</a>
 				</div>
@@ -65,9 +51,7 @@ if(@count($a)>=3){
 
 								</div>
 							</a>
-
 						</div>
-
 						<div class="col-sm-12 col-md-6 col-lg-12 mt-2  ">
 							<a href="<?php echo get_permalink($a[2]); ?>">
 								<div class=" position-relative text-end">
@@ -86,18 +70,11 @@ if(@count($a)>=3){
 				</div>
 			</div>
 		</div>
-
 	</div>
-
 	<?php
 }
 wp_reset_query();
 ?>
-
-
-
-
-
 
 <!-- Serviços -->
 <div class="container mt-5">
@@ -108,50 +85,17 @@ wp_reset_query();
 		</div>
 	</div>
 	<div class="row">
-
-
 		<?PHP 
-
 		if(have_posts()):while(have_posts()) : the_post();
-			?>
-
-
-
-			<div class="col-sm-12 col-md-6 col-xl-3  mt-2">
-				<a  class="text-dark" style='text-decoration:none;' aria-current="true" href="<?php the_permalink();?>">
-					<div class="card h-100">
-
-						<div class="w-100" style='height:200px;'>
-							<?php
-							if(has_post_thumbnail()){
-								the_post_thumbnail('post-thumbnail',array('class'=>'card-img-top img-fluid mw-100 mh-100'));
-							}else{
-								echo "<div class='w-100 h-100 card-img-top img-fluid gradient'></div>";
-							}
-							?>
-						</div>
-
-
-						<div class="card-body">
-							<h5 class="card-title"><?php the_title();?></h5>
-							<p class="card-text"><?php the_excerpt(); ?></p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Publicado em <?=get_the_date('d/m/y');?></small>
-						</div>
-					</div>
-				</a>
-			</div>
-
-
-		<?php endwhile;	?>
-
-
+		?>
+		<?php 
+		get_template_part('content',get_post_format());
+		endwhile;	
+		?>
 		<?php
 		else: get_404_template(); endif;
 		?>
 	</div>
-
 </div>
 <div class="container">
 	<div class="row">
@@ -161,13 +105,10 @@ wp_reset_query();
 		</div>
 	</div>
 </div>
-
 <div class="container">
 	<div class="row">
 		<div class="col"></div>
 		<?php //get_sidebar();?>	
 	</div>
 </div>
-
-
 <?php get_footer(); ?>
