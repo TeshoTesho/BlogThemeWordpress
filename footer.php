@@ -71,7 +71,7 @@
       <div class="col-md-6 col-sm-12 ">
         <div class="row">
           <div class="col-12 fs-2  d-md-flex justify-content-end text-center"><p><?php bloginfo('name'); ?></p></div>
-          <div class="col-12 d-md-flex justify-content-end text-center" style="margin-top: -25px;"><p><small><?php bloginfo('description'); ?></small></p></div>
+          <div class="col-12 d-md-flex justify-content-end text-end" style="margin-top: -25px;"><p><small><?php bloginfo('description'); ?></small></p></div>
         </div>
       </div>
     </div>
