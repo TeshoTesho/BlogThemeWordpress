@@ -5,7 +5,7 @@
 require_once(get_template_directory() . '/inc/class-nav-bootstrap-walker.php');
 
 //Footer - Menu
-require_once(get_template_directory() . '/inc/costumizer.php');
+//require_once(get_template_directory() . '/inc/costumizer.php');
 
 
 
